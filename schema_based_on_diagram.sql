@@ -77,4 +77,3 @@ CREATE INDEX idx_invoice_treatment_id ON invoice_items(treatment_id);
 CREATE INDEX idx_medical_history_id ON medical_histories_treatments(medical_history_id);
 CREATE INDEX idx_medical_treatment_id ON medical_histories_treatments(treatment_id);
 
-
