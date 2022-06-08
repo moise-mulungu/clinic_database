@@ -69,6 +69,7 @@ CREATE TABLE medical_histories_treatments (
         REFERENCES medical_histories (id)
 );
 
+-- create indexes on medical_histories, invoices, invoice_items and medical_histories_treatments tables 
 CREATE INDEX idx_patient_medical_history ON medical_histories(patient_id);
 CREATE INDEX idx_medical_history_id ON invoices(medical_history_id);
 CREATE INDEX idx_invoice_items_id ON invoice_items(invoice_id);
