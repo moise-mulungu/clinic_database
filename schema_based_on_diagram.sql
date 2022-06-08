@@ -55,3 +55,16 @@ CONSTRAINT fk_invoice_id
         FOREIGN KEY (treatment_id)
         REFERENCES treatments (id)
 );
+
+-- create a join-table named medical_histories _treatments for medical_histories and treatments tables
+CREATE TABLE medical_histories_treatments (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    treatment_id INT,
+    medical_history_id INT,
+    CONSTRAINT fk_treatment_id 
+        FOREIGN KEY (treatment_id) 
+        REFERENCES treatments (id),
+    CONSTRAINT fk_medical_history_id 
+        FOREIGN KEY (medical_history_id) 
+        REFERENCES medical_histories (id)
+);
