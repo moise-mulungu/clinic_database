@@ -13,10 +13,23 @@ CREATE TABLE patients(
 CREATE TABLE medical_histories(
     id INT GENERATED ALWAYS AS IDENTITY, 
     admitted_at TIMESTAMP,
-    patients_id INT,
+    patient_id INT,
     status VARCHAR(50) NOT NULL,
-    CONSTRAINT fk_patients
-        FOREIGN KEY(patients_id)
+    CONSTRAINT fk_patient
+        FOREIGN KEY(patient_id)
         REFERENCES patients(id)
 );
+
+-- Create a table named invoices
+CREATE TABLE invoices(
+    id INT GENERATED ALWAYS AS IDENTITY, 
+    total_amount DECIMAL,
+    generated_at TIMESTAMP,
+    payed_at TIMESTAMP,
+    medical_history_id INT,
+    CONSTRAINT fk_medical_history
+        FOREIGN KEY (medical_history_id)
+        REFERENCES medical_histories (id)
+);
+
 
