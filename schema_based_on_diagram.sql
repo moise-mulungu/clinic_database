@@ -41,17 +41,17 @@ CREATE TABLE treatments(
 );
 
 -- create a table named invoice_items
-CREATE TABLE invoice_items (
-    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
-    unit_price DECIMAL, 
-    quantity INT, 
-    total_price DECIMAL, 
-    invoice_id INT, 
-    treatment_id INT, 
-    CONSTARINT fk_invoice_id
+CREATE TABLE invoice_items(
+id INT GENERATED ALWAYS AS IDENTITY, 
+unit_price DECIMAL NOT NULL,
+quantity INT NOT NULL,
+total_price DECIMAL,
+invoice_id INT NOT NULL,
+treatment_id INT NOT NULL,
+CONSTRAINT fk_invoice_id
         FOREIGN KEY (invoice_id)
         REFERENCES invoices (id),
-    CONSTARINT fk_treatment_id
+    CONSTRAINT fk_treatment_id
         FOREIGN KEY (treatment_id)
-        REFERENCES treatments (id),
+        REFERENCES treatments (id)
 );
